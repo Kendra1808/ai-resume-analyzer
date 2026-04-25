@@ -16,6 +16,11 @@ This project uses Machine Learning and NLP to analyze resumes and recommend jobs
 - NLP (TF-IDF / Sentence Transformers)
 - Streamlit
 
+## Sample Resume
+# Due to PDF parsing limitations in GitHub and Streamlit, sample resume is provided in text format.
+- copy and paste the sample resume texts.
+- upload in pdf format.
+
 ## How to Run
 1. Install dependencies:
    pip install -r requirements.txt

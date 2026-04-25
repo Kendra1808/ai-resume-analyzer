@@ -38,7 +38,7 @@ if uploaded_file:
 
     with col1:
         st.subheader("📄 Resume Preview")
-        st.write(text[:500])
+        st.write(text[:1000])
 
 # -------------------------
 # Prediction
