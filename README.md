@@ -17,7 +17,7 @@ This project uses Machine Learning and NLP to analyze resumes and recommend jobs
 - Streamlit
 
 ## Sample Resume
-# Due to PDF parsing limitations in GitHub and Streamlit, sample resume is provided in text format.
+## Due to PDF parsing limitations in GitHub and Streamlit, sample resume is provided in text format.
 - copy and paste the sample resume texts.
 - upload in pdf format.
 
