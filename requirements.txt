@@ -1,7 +1,11 @@
 streamlit
 pandas
+numpy
 scikit-learn
-nltk
 spacy
 PyPDF2
 sentence-transformers
+joblib
+matplotlib
+seaborn
+nltk

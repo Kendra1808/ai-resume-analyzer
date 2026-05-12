@@ -19,7 +19,7 @@ def load_model():
 
 @st.cache_data
 def load_jobs():
-    return pd.read_csv("data/Jobb_clean.csv")
+    return pd.read_csv("data/Job_clean.csv")
 
 # Precompute job vectors
 model, tfidf = load_model()
@@ -66,33 +66,61 @@ if uploaded_file:
     # -------------------------
     # Job recommendation
     # -------------------------
+    CATEGORIES = [
+        "INFORMATION-TECHNOLOGY",
+        "HR",
+        "DATA SCIENCE",
+        "ENGINEERING",
+        "DEVOPS ENGINEER",
+        "ADVOCATE",
+        "BPO",
+        "SALES",
+        "DESIGNER",
+        "ARTS",
+        "DIGITAL-MEDIA",
+        "AUTOMOBILE",
+        "FINANCE",
+        "ACCOUNTANT",
+        "APPAREL",
+        "PYTHON DEVELOPER",
+        "JAVA DEVELOPER",
+        "ENGINEERING",
+        "BUSINESS-DEVELOPMENT",
+        "AGRICULTURE"
+    ]
+
+    st.subheader("💼 Recommended Jobs")
+
+    # Check if predicted role is IT-related
+    if prediction.upper() not in CATEGORIES:
+
+        st.warning(
+        "Currently, job recommendations are optimized for technical or IT-related roles only."
+        )
+
+    else:
         similarity = cosine_similarity(vec, job_vectors)
+
         top_idx = similarity[0].argsort()[-5:][::-1]
 
-        st.subheader("💼 Recommended Jobs")
-
         for i in top_idx:
+
             title = jobs["Title"].iloc[i]
+
             score_val = similarity[0][i]
 
             st.write(f"👉 {title}")
+
             st.progress(int(score_val * 100))
+
             st.write(f"Match Score: {score_val:.2f}")
         
-            tips = [
+    tips = [
             "Use bullet points for readability",
             "Quantify achievements (e.g., improved performance by 20%)",
             "Keep resume to 1–2 pages",
             "Include relevant keywords for ATS systems"
 ]
-
-    st.subheader("📌 Resume Tips")
-    for tip in tips:
-        st.write(f"✔ {tip}")
-        
-    st.subheader("🎥 Learn More")
-
-    st.video("https://youtu.be/R3abknwWX7k?si=qcm0v-2yskDp1B-D")
 
     st.subheader("📊 Conclusion")
 
@@ -104,3 +132,11 @@ if uploaded_file:
 
     Improvement areas include adding more measurable achievements and expanding technical skills.
     """)
+
+    st.subheader("📌 Resume Tips")
+    for tip in tips:
+        st.write(f"✔ {tip}")
+
+    st.subheader("🎥 Learn More")
+
+    st.video("https://youtu.be/R3abknwWX7k?si=qcm0v-2yskDp1B-D")

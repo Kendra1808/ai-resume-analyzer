@@ -2,15 +2,13 @@ __pycache__/
 *.pyc
 .env
 
-# Models
-*.pkl
-
-# Data
-*.csv
-
 # Jupyter
 .ipynb_checkpoints/
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# IDE
+.vscode/
+.idea/
